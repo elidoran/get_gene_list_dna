@@ -2,9 +2,9 @@
 
 Small node server app. The idea is you pass it a list of gene names like:
 
-slr
-lacz
-glp
+slr  
+lacz  
+glp  
 
 and it will query the ncbi and download the dna sequences associated with these genes.
 
