@@ -1,5 +1,7 @@
 var querystring = require("querystring"),
-	fs = require("fs");
+	fs = require("fs"),
+	split = require("split"), 
+	Transform = require("stream");
 
 function start(response){
 	console.log("Request handler 'start' was called.");
@@ -9,6 +11,10 @@ function start(response){
 	'charset=UTF-8"/>'+
 	'</head>'+
 	'<body>'+
+	'<form action="/upload" method="post">'+
+	'<textarea name="text" rows="20" cols="10"></textarea>'+
+	'<input type="submit" value="Submit text" />'+
+	'<p>Or</p>'+	
 	'<form action="/upload" enctype="multipart/form-data" method="post">'+
 	'<input type="file" name="upload">'+
 	'<input type="submit" value="Upload file" />'+
