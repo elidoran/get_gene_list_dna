@@ -1,7 +1,7 @@
 var querystring = require("querystring"),
 	fs = require("fs"),
 	split = require("split"), 
-	Transform = require("stream");
+	Transform = require("stream")._transform;
 
 function start(response){
 	console.log("Request handler 'start' was called.");
@@ -26,11 +26,17 @@ function start(response){
 	response.end();
 }
 
-function upload(response, postData){
-	console.log("Request handler 'upload' was called.");
-	response.writeHead(200, {"Content-Type": "text/plain"});
-	response.write("You've sent: "+querystring.parse(postData).text);
-	response.end();
+function upload(response, gene_array){
+    console.log("Request handler 'upload' was called.");
+    response.writeHead(200, {"Content-Type": "text/html"});
+    response.write("<h2>You've sent: </h2>");
+    response.write("<ul>");
+    //+querystring.parse(postData).text
+    for (var i = 0;i<gene_array.length;i++){
+	response.write("<li>"+gene_array[i]+"</li>");
+    }
+    response.write("</ul>")
+    response.end();
 }
 
 function show (response) {
