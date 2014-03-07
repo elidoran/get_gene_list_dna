@@ -1,12 +1,6 @@
-server = require './server'
-router = require './server/router'
-requestHandlers = require './server/requestHandlers'
 
+# check for port in environment variable, else use default
+port = process.env.PORT ? 8888
+host = process.env.HOST ? null
 
-handle =
-  '/'       : requestHandlers.start
-  '/start'  : requestHandlers.start
-  '/upload' : requestHandlers.upload;
-  '/show'   : requestHandlers.show;
-
-server.start router.route, handle
+require('./server').start host, port
