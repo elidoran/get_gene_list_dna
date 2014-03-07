@@ -1,0 +1,26 @@
+{
+  "name": "get_gene_list_dna",
+  "version": "0.1.0",
+  "description": "Acquires DNA from NCBI based on selectors",
+  "main": "index.js",
+  "dependencies": {
+    "formidable": "~1.0.14",
+    "querystring": "~0.2.0",
+    "split": "~0.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jpearl01/get_gene_list_dna.git"
+  },
+  "author": "Josh Earl <joshearl1@hotmail.com>",
+  "contributors" : "Eli Doran <eli@elidoran.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jpearl01/get_gene_list_dna/issues"
+  }
+}
