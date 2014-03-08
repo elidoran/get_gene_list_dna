@@ -1,0 +1,58 @@
+<template name="home">
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title">Add Search Items</h2>
+    </div>
+    <div class="panel-body">
+      <form class="addSearchForm" role="form" data-type="term">
+        <div class="input-group input-group-lg">
+          <input type="text" class="form-control addItem" id="addSearchTerm" 
+            placeholder="enter new search term" />
+          <span class="input-group-btn">
+            <button id="addTerm" class="btn btn-primary addSearchButton" 
+              type="button" data-type="term">Add Term</button>
+          </span>
+        </div>
+      </form>
+    
+      <form class="addSearchForm" role="form" data-type="file">
+        <div class="input-group input-group-lg">
+          <input type="file" class="form-control addItem" id="addSearchFile" />
+          <span class="input-group-btn">
+            <button class="btn btn-primary addSearchButton" type="button" 
+              data-type="file">Add File</button>
+          </span>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h2 class="panel-title">Search Items</h2>
+    </div>
+    <div class="panel-body">
+      <form id="searchList" action="/progress" method="post" enctype="multipart/form-data" role="form">
+        {{#if searchItems}}
+          {{#each searchItems}}
+            <div class="input-group">
+              <span class="input-group-addon">{{type}}:</span>
+              <input type="text" class="form-control" id="{{type}}{{index}}" name="{{type}}{{index}}" 
+                value="{{text}}" readonly />
+              <span class="input-group-btn">
+                <button class="btn btn-danger deleteItemButton" type="button" data-index="{{index}}"> 
+                  X</button>
+              </span>
+            </div>
+          {{/each}}
+          <br/>
+          <button disabled type="submit" class="btn btn-success">Submit</button>
+        {{else}}
+          <h4>No search items added</h4>          
+        {{/if}}
+      </form>
+    </div>
+  </div>
+  
+</template>
