@@ -7,3 +7,8 @@ Template.error.rendered = ->
   Meteor.defer ->
     Errors.update error._id, { $set: {seen: true} }
     
+#Template.error.events
+#  'click .close': (e) ->
+#    e.preventDefault()
+#    remove the error....
+
