@@ -1,0 +1,21 @@
+<template name="taskList">
+
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h2 class="panel-title">Search Items</h2>
+    </div>
+    <div class="panel-body">
+      <form id="searchList" action="/progress" method="post" enctype="multipart/form-data" role="form">
+        {{#if tasks}}
+          {{#each tasks}}
+            {{> taskItem }}
+          {{/each}}
+        {{else}}
+          <h4>No search items added</h4>          
+        {{/if}}
+      </form>
+    </div>
+  </div>
+  
+</template>
+

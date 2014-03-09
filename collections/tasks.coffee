@@ -8,7 +8,7 @@ Tasks.deny
   update: -> true
   
 Meteor.methods
-  post: (taskData) ->
+  newTask: (taskData) ->
     
     user = Meteor.user()
     

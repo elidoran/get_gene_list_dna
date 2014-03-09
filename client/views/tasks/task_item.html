@@ -1,0 +1,14 @@
+<template name="taskItem">
+  
+  <div class="input-group">
+    <span class="input-group-addon">{{type}}:</span>
+    <input type="text" class="form-control" id="{{type}}{{index}}" name="{{type}}{{index}}" 
+      value="{{text}}" readonly />
+    <span class="input-group-btn">
+      <button class="btn btn-danger deleteItemButton" type="button" data-index="{{index}}"> 
+        X</button>
+    </span>
+  </div>
+  
+</template>
+

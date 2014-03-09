@@ -1,0 +1,33 @@
+<template name="taskSubmit">
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title">Add Search Items</h2>
+    </div>
+    <div class="panel-body">
+      <form class="addSearchForm" role="form" data-type="term">
+        <div class="input-group input-group-lg">
+          <input type="text" class="form-control addItem" id="addSearchTerm" 
+            placeholder="enter new search term" />
+          <span class="input-group-btn">
+            <button id="addTerm" class="btn btn-primary addSearchButton" 
+              type="button" data-type="term">Add Term</button>
+          </span>
+        </div>
+      </form>
+    
+      <form class="addSearchForm" role="form" data-type="file">
+        <div class="input-group input-group-lg">
+          <input type="file" class="form-control addItem" id="addSearchFile" />
+          <span class="input-group-btn">
+            <button class="btn btn-primary addSearchButton" type="button" 
+              data-type="file">Add File</button>
+          </span>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+</template>
+
+
