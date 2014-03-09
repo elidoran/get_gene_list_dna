@@ -6,14 +6,16 @@ Router.configure
   
   waitOn: () ->
     [
-      #Meteor.subscribe('posts')
+      Meteor.subscribe 'tasks'
       #Meteor.subscribe('notifications')
     ]
 
 Router.map () ->
 
-  this.route 'home', { path: '/' }
+  this.route 'tasks', { path: '/' }
 
-  this.route 'progress'
 
+
+Router.before requireLogin, { only: 'tasks' }
+Router.before () -> Errors.clearSeen()
 
