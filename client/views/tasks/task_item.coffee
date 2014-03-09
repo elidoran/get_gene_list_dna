@@ -1,12 +1,26 @@
 
+Template.taskItem.helpers
+  isntArchived: -> not this?.archived?
+  
+  idCount: ->
+    count = 0
+    if this?.results? then count++ for key of this.results
+    count
+    
+  dnaCount: ->
+    count = 0
+    if this?.results? then count++ for key,val of this.results when val?
+    count
+    
 Template.taskItem.events
 
-  'click .deleteItemButton': (e) ->
+  'click .archiveTask': (e) ->
     e.preventDefault()
-    index = ($(e.target).data 'index')
-    console.log "deleteItem: #{index}"
-    items = Session.get 'searchItems'
-    if items? and 0 <= index <= items?.length then items.splice index, 1
-    items[index].index = index++ while index < items.length
-    Session.set 'searchItems', items
-      
+    term = $(e.target).data 'term'
+    console.log "archiveTask: #{term}"
+    task = Tasks.findOne { term: term }
+    if task? 
+      Meteor.call 'archiveTask', task, (error, id) ->
+        if (error) then throwError error.reason
+
+
