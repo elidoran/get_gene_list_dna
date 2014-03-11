@@ -9,7 +9,7 @@ Template.taskItem.helpers
     
   dnaCount: ->
     count = 0
-    if this?.results? then count++ for key,val of this.results when val?
+    if this?.results? then count++ for key,val of this.results when val? and val.length > 0
     count
     
 Template.taskItem.events
